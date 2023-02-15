@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;600&display=swap');
+
+:root {
+    --cor-primaria: #000000;
+    --cor-secundaria: #f6f6f6;
+    --cor-terciaria: #22d4fd;
+    --cor-hover: #272727;
+
+    --fonte-primaria: 'Krona One', 'sans-serif';
+    --fonte-secundaria: 'Montserrat', 'sans-serif';
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+/* utilizar o "*" no início, quer dizer selecionar todo o conteúdo da pagina */
+
+body {
+    /*height: 100vh; ==> comentado, pois com as novas atualizações, algunes elementos não estavam sendo contemplados no body. Mas, todavia, 100vh significa 100% do viewport height, e a de baixo, border-box, é pra imagem não ultrapassar a borda da tela  */
+    box-sizing: border-box;
+    background-color: var(--cor-primaria);
+    color: var(--cor-secundaria);
+
+}
+
+.cabecalho {
+    padding: 2% 0 0 10%; /* são 4 medidas, pois o padding ele muda do objeto até suas bordas, sendo assim, são 4 lados */
+}
+
+.cabecalho__menu {
+    display: flex; /* como eu qeuero organizar os elementos do cabeçalho__menu__link com o flexbox, eu tenho que utilizar suas propriedades no código pai, no caso, o do cabeçalho__menu */
+    gap: 70px;
+}
+
+.cabecalho__menu__link {
+    font-family: var(--fonte-secundaria);
+    font-size: 1,25rem; /* o font size anterior estava em px, mas usando o rem, ele pode se adaptar a outros tamanhos, 
+    1 rem = 16px */
+    font-weight: 600;
+    color: var(--cor-terciaria);
+    text-decoration: none;
+
+}
+
+.apresentacao {
+    padding: 5% 10%; /* o primeiro valor é de cima e de baixo da tela, o segundo é das laterais */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 82px; /* esse gap é pra deixar um espaço entre imagem e o texto fixo */
+}
+
+.apresentacao__conteudo {
+    width: 50%; /* antes aqui tava 650px, mas usando %, é possivel se adaptar a diversos tamanhos. A porcentagem é quantos % do tamanho do codigo pai */
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+
+.apresentacao__conteudo__titulo {
+    font-size: 2rem;
+    font-family: var(--fonte-primaria);
+}
+
+.titulo-destaque {
+    color: var(--cor-terciaria);
+}
+
+.apresentacao__conteudo__texto {
+    font-size: 1,25rem;
+    font-family: var(--fonte-secundaria);
+}
+
+.apresentacao__links {
+    display: flex;
+    flex-direction: column; /* sem isso aqui, o acesse minha resdes ficaria do lado dos botoes */
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px; /* esse gap é pra ter os espaçoes entre os botoes */
+}
+
+.apresentacao__links__subtitulo {
+    font-family: var(--fonte-primaria);
+    font-weight: 400; 
+    font-size: 1,25rem;
+}
+
+.apresentacao__links__navegacao {
+    /*background-color: rgb(247, 8, 8); ===> esse era o codigo anterior*/
+    display: flex; /* aqui eles ficam lado a lado e vão para o canto, com o de baixo, centraliza */
+    justify-content: center;
+    gap: 16px;
+    border: 2px solid var(--cor-terciaria); /* o primeiro valor "2px" é o tamanho da borda */
+    width: 50%;
+    text-align: center;
+    border-radius: 8px; /* pra deixar a borda arredondada */
+    font-size: 1,25rem;
+    font-weight: 600;
+    padding: 18px 0;
+    text-decoration: none; /* pra tirar o contorno do link */
+    color: var(--cor-secundaria);
+    font-family: var(--fonte-secundaria);
+
+}
+
+.apresentacao__links__navegacao:hover {
+    background-color: var(--cor-hover);
+}
+
+.imagem {
+    width: 30%;
+    height: 30%;
+}
+
+.rodape {
+    padding: 20px;
+    color: var(--cor-primaria);
+    background-color: var(--cor-terciaria);
+    text-align: center;
+    font-family: var(--fonte-secundaria);
+    font-size: 1,25rem; 
+    font-weight: 400;
+}
+
+@media (max-width: 1200px) {
+    .cabecalho {
+        padding: 10%;
+    }
+
+    .cabecalho__menu {
+        justify-content: center; /* nao é necessário criar uma flex box pq ela ja esta definida no cabecalho__menu */
+    }
+  
+    .apresentacao {
+        flex-direction: column-reverse; /* esse reverse é pra foto ficar no topo */
+        padding: 5%;
+    }
+
+    .apresentacao__conteudo {
+        width: auto; /* esse auto faz o texto se adequar ao codigo pai, ela segue o codigo pai. Nesse caso, ela poderia ser 100% também, que seria a mesma coisa */
+    }
+}
